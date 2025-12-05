@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div>
-        <h2 style="margin:0">Produk Pilihan</h2>
+        <h2>Produk Pilihan</h2>
         <div class="subtitle">Pilih produk yang ingin dimasukkan ke keranjang</div>
       </div>
       <div class="search-wrapper">
@@ -34,13 +34,26 @@ const filtered = computed(() => {
 
 <style scoped>
 .header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
+  display: flex;
+  flex-direction: column; /* Stack vertically on mobile */
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
+
+.header h2 {
+  margin: 0;
+  font-size: 1.25rem; /* Ukuran judul yang lebih pas untuk mobile */
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+
 .search-wrapper {
   position: relative;
+  width: 100%; /* Full width on mobile */
 }
 .search-wrapper svg {
   position: absolute;
@@ -50,6 +63,7 @@ const filtered = computed(() => {
   color: var(--muted);
 }
 .search-input {
+  width: 100%;
   padding:8px 10px 8px 36px;
   border-radius:10px;
   border:1px solid #e6edf9;
@@ -59,5 +73,28 @@ const filtered = computed(() => {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-600);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  /* Membuat grid responsif: kolom akan memiliki lebar minimal 220px 
+     dan akan mengisi ruang yang tersedia secara otomatis. */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header h2 {
+    font-size: 1.5rem; /* Kembalikan ukuran judul di desktop */
+  }
+  .search-wrapper {
+    width: auto;
+  }
 }
 </style>

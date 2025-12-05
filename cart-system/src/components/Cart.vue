@@ -60,9 +60,41 @@ function checkout() {
   cart.clearCart();
 }
 </script>
+<style>
+/* Styling untuk cart-card */
+.cart-card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
 
-<style scoped>
+
 .remove { font-size:12px; }
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cart-header .subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.badge {
+  background-color: #42b883; /* Warna hijau Vue */
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+}
 .qty-control { display:flex;align-items:center;gap:6px; }
 .icon-btn { width:34px;height:34px;border-radius:8px;border:1px solid #eef6ff;display:grid;place-items:center;background:white;cursor:pointer; }
 .icon-btn:hover { background:#f8fbff; }
